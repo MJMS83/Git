@@ -1,12 +1,17 @@
 package una.ac.cr.git;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class NumEmergencias extends AppCompatActivity {
 
@@ -30,7 +35,7 @@ public class NumEmergencias extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.tomas:
                 Tomas();
                 return true;
@@ -56,32 +61,33 @@ public class NumEmergencias extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void Tomas() {
-        //Vacío porque ya está en la pantalla de tomas
-    }
 
-    private void NumDeEmergencias() {
-        Intent intent = new Intent(this,NumEmergencias.class);
+    private void Tomas() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    private void NumDeEmergencias() {
+
+    }
+
     private void HistorialDeTomas() {
-        Intent intent = new Intent(this,HistorialTomas.class);
+        Intent intent = new Intent(this, HistorialTomas.class);
         startActivity(intent);
     }
 
     private void TipsDeSalud() {
-        Intent intent = new Intent(this,TipsSalud.class);
+        Intent intent = new Intent(this, TipsSalud.class);
         startActivity(intent);
     }
 
     private void PerfilDeUsuarios() {
-        Intent intent = new Intent(this,PerfilUsuario.class);
+        Intent intent = new Intent(this, PerfilUsuario.class);
         startActivity(intent);
     }
 
     private void AcercaDe() {
-        Intent intent = new Intent(this,Acerca.class);
+        Intent intent = new Intent(this, Acerca.class);
         startActivity(intent);
     }
 
@@ -93,4 +99,30 @@ public class NumEmergencias extends AppCompatActivity {
     }
 
 
+    public void LlamarPolicia(View view) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:117"));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(intent);
+    }
+
+    public void LlamarBomberos(View view) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:118"));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(intent);
+    }
+
+    public void LlamarCruzRoja(View view) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:128"));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(intent);
+    }
 }

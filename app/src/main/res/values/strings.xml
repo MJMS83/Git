@@ -15,5 +15,12 @@
     <string name="todos_los_derechos_reservados_2017">Todos los derechos reservados © 2017</string>
     <string name="desarrolladores">Desarrolladores</string>
     <string name="presapp">PresApp</string>
+    <string name="TituloEmergencias">Números de emergencia Costa Rica</string>
+    <string name="polic_a">Policía:</string>
+    <string name="_117">117</string>
+    <string name="cruz_roja">Cruz Roja:</string>
+    <string name="bomberos">Bomberos:</string>
+    <string name="_128">128</string>
+    <string name="_118">118</string>
 
 </resources>
