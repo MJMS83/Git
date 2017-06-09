@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Git</string>
+    <string name="app_name">PresApp</string>
+
+    <string name="tomas">Tomas de presión</string>
+    <string name="perfilUsuarios">Perfil de Usuarios</string>
+    <string name="historialTomas">Historial de tomas</string>
+    <string name="salud">Tips de salud</string>
+    <string name="numEmergencias">Números de emergencia</string>
+    <string name="acercaDe">Acerca de</string>
+    <string name="salir">Salir</string>
+    <string name="ing_juan_morris_lynott">Ing. Juan Morris Lynott</string>
+    <string name="AcercadeText">La aplicación fue creada con el fin de que los usuarios tenga un control de la presión arterial, así como de informar y dar consejos sobre cómo mejorar su salud.</string>
+    <string name="ing_william_m_ndez_barquero">Ing. William Méndez Barquero</string>
+    <string name="ing_josue_mora_sibaja">Ing. Josue Mora Sibaja</string>
+    <string name="todos_los_derechos_reservados_2017">Todos los derechos reservados © 2017</string>
+    <string name="desarrolladores">Desarrolladores</string>
+    <string name="presapp">PresApp</string>
+
 </resources>

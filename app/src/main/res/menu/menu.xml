@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/tomas"
+        android:title="@string/tomas"
+        />
+    <item android:id="@+id/perfilUsuarios"
+        android:title="@string/perfilUsuarios"
+        />
+    <item android:id="@+id/historialTomas"
+        android:title="@string/historialTomas"/>
+
+    <item android:id="@+id/tipsSalud"
+        android:title="@string/salud"/>
+
+    <item android:id="@+id/numEmergencias"
+        android:title="@string/numEmergencias"/>
+
+    <item android:id="@+id/acercaDe"
+        android:title="@string/acercaDe"/>
+
+    <item android:id="@+id/cerrar"
+        android:title="@string/salir"/>
+
+</menu>

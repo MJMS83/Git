@@ -8,28 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
-    //La pantalla principal es la de tomas de presion
+public class HistorialTomas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_historial_tomas);
+
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
 
-
-
-
-
-
-    /*MENU PRINCIPAL*/
+     /*MENU PRINCIPAL*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId()){
             case R.id.tomas:
                 Tomas();
                 return true;
@@ -65,33 +57,32 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
     private void Tomas() {
-        //Vacío porque ya está en la pantalla de tomas
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     private void NumDeEmergencias() {
-        Intent intent = new Intent(this, NumEmergencias.class);
+        Intent intent = new Intent(this,NumEmergencias.class);
         startActivity(intent);
     }
 
     private void HistorialDeTomas() {
-        Intent intent = new Intent(this, HistorialTomas.class);
-        startActivity(intent);
+
     }
 
     private void TipsDeSalud() {
-        Intent intent = new Intent(this, TipsSalud.class);
+        Intent intent = new Intent(this,TipsSalud.class);
         startActivity(intent);
     }
 
     private void PerfilDeUsuarios() {
-        Intent intent = new Intent(this, PerfilUsuario.class);
+        Intent intent = new Intent(this,PerfilUsuario.class);
         startActivity(intent);
     }
 
     private void AcercaDe() {
-        Intent intent = new Intent(this, Acerca.class);
+        Intent intent = new Intent(this,Acerca.class);
         startActivity(intent);
     }
 

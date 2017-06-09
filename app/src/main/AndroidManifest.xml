@@ -16,6 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FormUsuario" />
+        <activity android:name=".PerfilUsuario" />
+        <activity android:name=".HistorialTomas" />
+        <activity android:name=".TipsSalud" />
+        <activity android:name=".NumEmergencias" />
+        <activity android:name=".Acerca"></activity>
     </application>
+
+    <!--PERMISOS PARA VERSION NUEVA DE ANDROID Y LA VIEJA -->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+
+    <!--PARA VERSIONES VIEJAS DE ANDROID -->
+
+    <uses-feature android:name="android.hardware.location.gps"/>
 
 </manifest>
