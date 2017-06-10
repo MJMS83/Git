@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import java.text.Normalizer;
 
 public class MainActivity extends AppCompatActivity {
     //La pantalla principal es la de tomas de presion
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -19,6 +24,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -103,4 +120,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void pasaraForm(View view) {
+
+        Intent FormularioSiguiente=new Intent(MainActivity.this,FormUsuario.class );
+        startActivity(FormularioSiguiente);
+    }
 }

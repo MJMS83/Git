@@ -22,6 +22,9 @@
     <string name="bomberos">Bomberos:</string>
     <string name="_128">128</string>
     <string name="_118">118</string>
-    <string name="hablada">Hábitos correctos para combatir la hipertensión arterial</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="correo_electronico">Correo electronico</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="soy_nuevo">Soy nuevo</string>
 
 </resources>
