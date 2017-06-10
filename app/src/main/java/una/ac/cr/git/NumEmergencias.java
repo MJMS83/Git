@@ -103,6 +103,7 @@ public class NumEmergencias extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:117"));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            //PEDIR PERMISOS
             return;
         }
         startActivity(intent);
@@ -112,6 +113,7 @@ public class NumEmergencias extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:118"));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            //PEDIR PERMISOS
             return;
         }
         startActivity(intent);
@@ -121,6 +123,7 @@ public class NumEmergencias extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:128"));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            //PEDIR PERMISOS
             return;
         }
         startActivity(intent);
