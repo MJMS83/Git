@@ -22,9 +22,12 @@
     <string name="bomberos">Bomberos:</string>
     <string name="_128">128</string>
     <string name="_118">118</string>
-    <string name="contrase_a">Contraseña</string>
-    <string name="correo_electronico">Correo electronico</string>
     <string name="ingresar">Ingresar</string>
     <string name="soy_nuevo">Soy nuevo</string>
+    <string name="TxtLoginBienvenida">Controle su presión arterial y mejore su salud con PresApp</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="no_tienes_una_cuenta">¿No tienes una cuenta?</string>
+    <string name="reg_strese_ahora">Regístrese ahora</string>
 
 </resources>

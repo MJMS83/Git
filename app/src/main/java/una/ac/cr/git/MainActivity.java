@@ -120,9 +120,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void pasaraForm(View view) {
 
-        Intent FormularioSiguiente=new Intent(MainActivity.this,FormUsuario.class );
-        startActivity(FormularioSiguiente);
-    }
 }
