@@ -1,6 +1,7 @@
 package una.ac.cr.git;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,5 +29,11 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
 
 
+    }
+
+    public void CerrarApp(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            finishAffinity();
+        }
     }
 }

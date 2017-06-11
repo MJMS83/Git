@@ -29,5 +29,21 @@
     <string name="contrase_a">Contraseña</string>
     <string name="no_tienes_una_cuenta">¿No tienes una cuenta?</string>
     <string name="reg_strese_ahora">Regístrese ahora</string>
+    <string name="ingrese_datos">Ingrese los datos que se le solicitan a continuación:</string>
+    <string name="nombre">Nombre completo</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="edad">Edad</string>
+    <string name="peso_en_kg">Peso en kg</string>
+    <string name="altura">Altura</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="sexo">Sexo</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="sali">SALIR</string>
+
+    <string-array name="sexo">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
 
 </resources>
