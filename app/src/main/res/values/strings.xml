@@ -40,6 +40,19 @@
     <string name="sexo">Sexo</string>
     <string name="cancelar">CANCELAR</string>
     <string name="sali">SALIR</string>
+    <string name="nom">Nombre:</string>
+    <string name="edades">Edad:</string>
+    <string name="peso">Peso:</string>
+    <string name="altur">Altura:</string>
+    <string name="sex">Sexo:</string>
+    <string name="pass">Contraseña:</string>
+    <string name="editar">EDITAR</string>
+    <string name="controle_su_presi_n">¡Controle su presión!</string>
+    <string name="fecha">Fecha</string>
+    <string name="sist_lica">Sistólica</string>
+    <string name="diast_lica">Diastólica</string>
+    <string name="calcular">CALCULAR</string>
+    <string name="perfil_de_usuario">PERFIL DE USUARIO</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
