@@ -2,15 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="una.ac.cr.git">
 
-    <!-- PERMISOS PARA VERSION NUEVA DE ANDROID Y LA VIEJA -->
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!-- PARA VERSIONES VIEJAS DE ANDROID -->
-
-    <uses-feature android:name="android.hardware.location.gps" />
-
     <!-- PERMISOS DE LLAMDA -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application

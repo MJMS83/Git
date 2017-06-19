@@ -6,4 +6,7 @@
 
     <color name="toolbar">#128DBE</color>
     <color name="celeste">#128dbe</color>
+    <color name="negro">#000</color>
+    <color name="Titulo">#FFF</color>
+    <color name="row">#000000</color>
 </resources>

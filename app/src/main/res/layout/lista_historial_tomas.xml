@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+        <TableLayout
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="406dp"
+            android:stretchColumns="*">
+
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
+                <TextView
+                    android:id="@+id/textViewSistolica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/negro"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewDiastolica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/negro"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewCondicion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/negro"
+                    />
+                <TextView
+                    android:id="@+id/textViewFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/negro"
+                    />
+            </TableRow>
+
+        </TableLayout>
+
+
+</LinearLayout>

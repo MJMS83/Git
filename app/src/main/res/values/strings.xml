@@ -53,6 +53,8 @@
     <string name="diast_lica">Diastólica</string>
     <string name="calcular">CALCULAR</string>
     <string name="perfil_de_usuario">PERFIL DE USUARIO</string>
+    <string name="historial_de_tomas">Historial de tomas de presión</string>
+    <string name="condici_n">Condición</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
