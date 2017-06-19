@@ -9,4 +9,10 @@
     <color name="negro">#000</color>
     <color name="Titulo">#FFF</color>
     <color name="row">#000000</color>
+    <color name="Normal">#04B404</color>
+    <color name="NormalAlta">#D7DF01</color>
+    <color name="fase1">#FF8000</color>
+    <color name="Fase2">#DF3A01</color>
+    <color name="Fase3">#b40404</color>
+    <color name="SistoAislada">#3B0B0B</color>
 </resources>

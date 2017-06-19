@@ -1,52 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
+    <TableLayout
+        android:id="@+id/listaTomas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
 
-
-        <TableLayout
-            android:id="@+id/lista"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="406dp"
-            android:stretchColumns="*">
+            android:layout_height="match_parent"
+
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
 
-            <TableRow
+            <TextView
+                android:id="@+id/TiSistolica"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/sistolica"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                android:orientation="horizontal"
-                android:visibility="visible">
+            <TextView
+                android:id="@+id/TiDiastolica"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/diastolica"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TiCondicion"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/condicion"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
 
-                <TextView
-                    android:id="@+id/ViewSistolica"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+            <TextView
+                android:id="@+id/ViewSistolica"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ViewDiastolica"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+            <TextView
+                android:id="@+id/ViewDiastolica"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ViewCondicion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+            <TextView
+                android:id="@+id/ViewCondicion"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                android:textSize="18sp" />
 
-            </TableRow>
+        </TableRow>
 
-        </TableLayout>
 
+    </TableLayout>
 
 
 

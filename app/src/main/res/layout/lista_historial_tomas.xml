@@ -21,27 +21,27 @@
 
 
                 <TextView
-                    android:id="@+id/textViewSistolica"
+                    android:id="@+id/textSistolica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/negro"
                     />
 
                 <TextView
-                    android:id="@+id/textViewDiastolica"
+                    android:id="@+id/textDiastolica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/negro"
                     />
 
                 <TextView
-                    android:id="@+id/textViewCondicion"
+                    android:id="@+id/textCondicion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/negro"
                     />
                 <TextView
-                    android:id="@+id/textViewFecha"
+                    android:id="@+id/textFecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/negro"

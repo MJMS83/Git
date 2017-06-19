@@ -55,6 +55,9 @@
     <string name="perfil_de_usuario">PERFIL DE USUARIO</string>
     <string name="historial_de_tomas">Historial de tomas de presión</string>
     <string name="condici_n">Condición</string>
+    <string name="sistolica">SISTOLICA</string>
+    <string name="diastolica">DIASTOLICA</string>
+    <string name="condicion">CONDICION</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
