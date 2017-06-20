@@ -4,21 +4,56 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Vector;
+
 public class TipsSalud extends AppCompatActivity {
+   //Adaptador para los videos
+    RecyclerView recyclerView;
+    //Vector con los urls de los videos
+    Vector<YoutubeVideo> youtubeVideos = new Vector<YoutubeVideo>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips_salud);
+        //Aqui construimos lo de los videos
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+
+        //Load video List
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/c5FLRu5bZ3I\" frameborder=\"0\" allowfullscreen></iframe>"));
+
+        VideoAdapter videoAdapter = new VideoAdapter(youtubeVideos);
+
+        recyclerView.setAdapter(videoAdapter);
+
+
+
+
+
+
+
+
 
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
+
+
+
+
+
 
      /*MENU PRINCIPAL*/
 
