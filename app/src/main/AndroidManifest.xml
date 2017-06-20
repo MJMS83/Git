@@ -4,7 +4,7 @@
     package="una.ac.cr.git">
     <meta-data
         android:name="android.support.VERSION"
-        android:value="26.0.0-alpha1" />
+        android:value="25.3.0" />
 
     <!-- PERMISOS DE LLAMDA -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>

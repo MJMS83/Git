@@ -37,14 +37,6 @@ public class TipsSalud extends AppCompatActivity {
 
         recyclerView.setAdapter(videoAdapter);
 
-
-
-
-
-
-
-
-
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
