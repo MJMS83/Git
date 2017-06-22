@@ -32,6 +32,11 @@ public class TipsSalud extends AppCompatActivity {
 
         //Load video List
         youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/c5FLRu5bZ3I\" frameborder=\"0\" allowfullscreen></iframe>"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/wIziMxluDik\" frameborder=\"0\" allowfullscreen></iframe>"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/485s32fNd9Y\" frameborder=\"0\" allowfullscreen></iframe>"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xioHtUPQk9w\" frameborder=\"0\" allowfullscreen></iframe>"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/sn14MOn2BsA\" frameborder=\"0\" allowfullscreen></iframe>"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jeEJ0bl39OI\" frameborder=\"0\" allowfullscreen></iframe>"));
 
         VideoAdapter videoAdapter = new VideoAdapter(youtubeVideos);
 
