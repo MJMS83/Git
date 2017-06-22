@@ -55,18 +55,15 @@
     <string name="perfil_de_usuario">PERFIL DE USUARIO</string>
     <string name="historial_de_tomas">Historial de tomas de presión</string>
     <string name="condici_n">Condición</string>
-    <string name="sistolica">SISTOLICA</string>
-    <string name="diastolica">DIASTOLICA</string>
-    <string name="condicion">CONDICION</string>
+    <string name="sistolica">SISTÓLICA</string>
+    <string name="diastolica">DIASTÓLICA</string>
+    <string name="condicion">CONDICIÓN</string>
 
     <string-array name="sexo">
         <item>Masculino</item>
         <item>Femenino</item>
     </string-array>
     //para el video de youtube
-
-
-
 
 
 </resources>
