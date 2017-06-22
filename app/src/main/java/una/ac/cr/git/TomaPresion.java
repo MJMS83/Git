@@ -23,16 +23,17 @@ public class TomaPresion {
         this.NombreDeUsuario=NombreDeUsuario;
     }
 
-    public TomaPresion(String sistolica, String diastolica, String condicion) {
+
+
+    public TomaPresion(String sistolica, String diastolica, String condicion, String fechaToma) {
         this.sistolica = sistolica;
         this.diastolica = diastolica;
         this.condicion = condicion;
+        this.fechaToma = fechaToma;
     }
-
-    public TomaPresion(String sistolica, String diastolica, String fechaToma, String condicion) {
+    public TomaPresion(String sistolica, String diastolica, String condicion) {
         this.sistolica = sistolica;
         this.diastolica = diastolica;
-        this.fechaToma = fechaToma;
         this.condicion = condicion;
     }
 

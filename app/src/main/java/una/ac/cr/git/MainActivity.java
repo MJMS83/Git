@@ -1,7 +1,12 @@
 package una.ac.cr.git;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +22,7 @@ import android.widget.Toast;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     //La pantalla principal es la de tomas de presion
@@ -24,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
     TextView diastolica;
     TextView fecha;
     ListView lista;
+
+    //PARA OBTENER LA FECHA ACUAL
+    final Calendar calendar = Calendar.getInstance();
+    int anio = calendar.get(Calendar.YEAR);
+    int mes = calendar.get(Calendar.MONTH);
+    int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
 
     @Override
 
@@ -40,27 +53,36 @@ public class MainActivity extends AppCompatActivity {
         fecha = (TextView) findViewById(R.id.txtFecha);
         lista = (ListView) findViewById(R.id.ListViewTomas);
 
+        //PARTE DE LA FECHA
+        mes = mes + 1;
+        fecha.setText("Fecha: "+dia+"/"+mes+"/"+anio);
+
+
+
+
 
         final ArrayList<TomaPresion> datos = new ArrayList<>();
         lista.setAdapter(new Lista_Adaptador(this, R.layout.entrada, datos) {
             @Override
             public void onEntrada(Object activity_main, View view) {
                 TextView txtsistolica = (TextView) view.findViewById(R.id.ViewSistolica);
-                txtsistolica.setText(((TomaPresion)activity_main).getSistolica());
+                txtsistolica.setText(((TomaPresion) activity_main).getSistolica());
 
                 TextView txtDiastolica = (TextView) view.findViewById(R.id.ViewDiastolica);
-                txtDiastolica.setText(((TomaPresion)activity_main).getDiastolica());
+                txtDiastolica.setText(((TomaPresion) activity_main).getDiastolica());
 
                 TextView txtCondicion = (TextView) view.findViewById(R.id.ViewCondicion);
-                txtCondicion.setText(((TomaPresion)activity_main).getCondicion());
+                txtCondicion.setText(((TomaPresion) activity_main).getCondicion());
 
 
-                switch (((TomaPresion)activity_main).getCondicion()){
+                switch (((TomaPresion) activity_main).getCondicion()) {
                     case "Optima":
                         txtsistolica.setClickable(true);
                         txtsistolica.setBackgroundColor(getResources().getColor(R.color.Normal));
                         txtDiastolica.setBackgroundColor(getResources().getColor(R.color.Normal));
                         txtCondicion.setBackgroundColor(getResources().getColor(R.color.Normal));
+                       // Toast.makeText(getApplicationContext(), "¡La condición de su presión es: "+Condicion()+"! Visita nuestros tips de salud, para seguir con una buena presión arterial.", Toast.LENGTH_LONG).show();
+
 
 
                         break;
@@ -129,12 +151,14 @@ public class MainActivity extends AppCompatActivity {
                     datos.add(new TomaPresion(sistolica.getText().toString(), diastolica.getText().toString(), Condicion(), fecha.getText().toString()));
                     //Ocultar el boton para que pueda ingresar solo una vez los datos
                     calcular.setVisibility(View.INVISIBLE);
+
                     //OCULTA EL TECLADO AL DAR CLIC
                     InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
 
 
 
+                    Toast.makeText(getApplicationContext(), "¡La condición de su presión es: "+Condicion()+"! Visita nuestros tips de salud, para tener una buena presión arterial.", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -145,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
+    }//FINAL ONCREATE
 
 
 
@@ -156,10 +180,9 @@ public class MainActivity extends AppCompatActivity {
         int diasto = sistolica.getText().toString() != null && !diastolica.getText().toString().equals("") ? Integer.parseInt(diastolica.getText().toString()) : -1;
 
         for (int i = 0; i < 3; i++) {
-            if ((sisto<0) && (diasto<0)) {
+            if ((sisto < 0) && (diasto < 0)) {
                 return "Vacio";
-            }else
-            if ((sisto < 120) && (diasto < 80)) {
+            } else if ((sisto < 120) && (diasto < 80)) {
                 // BackgroundColorSpan b = new BackgroundColorSpan(color);
                 return "Optima";
             } else /*NORMAL*/ {
@@ -230,6 +253,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void Tomas() {
         //Vacío porque ya está en la pantalla de tomas
+        /*Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);*/
     }
 
     private void NumDeEmergencias() {
@@ -263,7 +288,6 @@ public class MainActivity extends AppCompatActivity {
             finishAffinity();
         }
     }
-
 
 
 }
