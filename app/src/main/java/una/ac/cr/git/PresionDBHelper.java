@@ -10,10 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class PresionDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATEBASE_NAME = "Presion.db";
+    public static final String DATABASE_NAME = "Presion.db";
 
-    public PresionDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public PresionDBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION); //Le pasa el nombre de la base datos y la versión
     }
 
     @Override
@@ -21,10 +21,11 @@ public class PresionDBHelper extends SQLiteOpenHelper {
         db.execSQL(PresionContract.SQL_CREATE_ENTRIES);
     }
 
-    @Override
+    @Override //Cuando modifico el esquema de base de datos, estos tienen un número de versión, por ejemplo si agrego un tercer
+    //campo en la base de datos, donde se borra la anterior y se crea la nueva tabla
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(PresionContract.SQL_DELETE_ENTRIES);
-        onCreate(db);
+        db.execSQL(PresionContract.SQL_DELETE_ENTRIES); //Se elimina
+        onCreate(db); //Se vuelve a crear llamando al onCreate que llama al
     }
 
     @Override

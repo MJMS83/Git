@@ -12,7 +12,7 @@ public class perfil_de_Usuario {
     String sexo;
     //Contructor sin parametros
 
-    public perfil_de_Usuario() {
+    public perfil_de_Usuario(String nombre, String apellido, String correo, String contrasena, String edad, String altura, String peso, String sexo) {
     }
 
     //Constructor con parametros
@@ -28,6 +28,7 @@ public class perfil_de_Usuario {
         this.altura = altura;
         this.sexo = sexo;
     }
+
     //Metodos get y set
     public String getNombre() {
         return nombre;

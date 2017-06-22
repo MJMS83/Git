@@ -10,20 +10,29 @@ public class TomaPresion {
     private String diastolica;
     private String fechaToma;
     private String condicion;
-
+    private String NombreDeUsuario;
     public TomaPresion() {
     }
 
-    public TomaPresion(String sistolica, String diastolica, String condicion, String fechaToma) {
+    public TomaPresion(String sistolica, String diastolica, String condicion, String fechaToma
+    ,String NombreDeUsuario) {
         this.sistolica = sistolica;
         this.diastolica = diastolica;
         this.condicion = condicion;
         this.fechaToma = fechaToma;
+        this.NombreDeUsuario=NombreDeUsuario;
     }
 
     public TomaPresion(String sistolica, String diastolica, String condicion) {
         this.sistolica = sistolica;
         this.diastolica = diastolica;
+        this.condicion = condicion;
+    }
+
+    public TomaPresion(String sistolica, String diastolica, String fechaToma, String condicion) {
+        this.sistolica = sistolica;
+        this.diastolica = diastolica;
+        this.fechaToma = fechaToma;
         this.condicion = condicion;
     }
 
@@ -57,4 +66,8 @@ public class TomaPresion {
     public void setFechaToma(String fechaToma) {
         this.fechaToma = fechaToma;
     }
+
+    public String getNombreDeUsuario() { return NombreDeUsuario;}
+
+    public void setNombreDeUsuario(String nombreDeUsuario) {NombreDeUsuario = nombreDeUsuario;}
 }

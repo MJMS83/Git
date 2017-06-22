@@ -10,14 +10,14 @@ public class PresionContract {
     public static String SQL_CREATE_ENTRIES =
             //CREATE TABLE cancion (md5 TEXT PRIMARY KEY, valoracion INTEGER)
             "CREATE TABLE " + PresionEntry.TABLE_NAME + " ( " +
-                    PresionEntry.COLUM_NAME_CORREO + " PRIMARY KEY, " +
-                    PresionEntry.COLUMN_NAME_NOMBRE +
+                    PresionEntry.COLUM_NAME_CORREO +
+                    PresionEntry.COLUMN_NAME_NOMBRE + "PRIMARY KEY," +
                     PresionEntry.COLUMN_NAME_APELLIDO+
                     PresionEntry.COLUMN_NAME_SEXO+
                     PresionEntry.COLUM_NAME_EDAD + "INTEGER"+
                     PresionEntry.COLUM_NAME_ALTURA + "FLOAT"+
                     PresionEntry.COLUM_NAME_PESO + "FLOAT"+
-                    PresionEntry.COLUM_NAME_CONTRASENA +"FLOAT)";
+                    PresionEntry.COLUM_NAME_CONTRASENA +"INTEGER)";
 
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + PresionEntry.TABLE_NAME;

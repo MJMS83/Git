@@ -5,68 +5,82 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by josue on 17/06/17.
  */
 
 public class HistorialDbService {
-    Context context;
     HistorialDBHelper historialDBHelper;
+    Context context;
+    ArrayList<TomaPresion> registroTP = new ArrayList<TomaPresion>();
+    SQLiteDatabase db;
 
-    public HistorialDbService(Context context, HistorialDBHelper historialDBHelper) {
+    public HistorialDbService(Context context) {
         this.context = context;
-        this.historialDBHelper = historialDBHelper;
-    }
-    public void save(historial_tomas historial_tomas){
-        SQLiteDatabase db = historialDBHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION,historial_tomas.getCondicion());
-        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_DIASTOLICA,historial_tomas.getDiastolica());
-        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_SISTOLICA,historial_tomas.getSistolica());
-
-        if (consultarCondicion(historial_tomas.getCondicion())) {
-            db.insert(HistorialContract.HistorialEntry.TABLE_NAME, null, values);
-        } else {
-            db.update(HistorialContract.HistorialEntry.TABLE_NAME,
-                    values,
-                    HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION +" = ?",
-                    new String[]{});
-        }
+        historialDBHelper =new HistorialDBHelper(context);
     }
 
-    /*
-    * Condicion a ser buscada
-    * return false si no existe la condicion de la toma de presion
+    /**
+     * Guarda o actualiza una canción
+     * @param tomaPresion Cancion a ser guardada
      */
-    public boolean consultarCondicion(String condicion) {
-        SQLiteDatabase db = historialDBHelper.getReadableDatabase();
-        //select valoracion from cancion where md5 = ?
+    public void save(TomaPresion tomaPresion) { //recibe un registro  para guardarlo o actualizarla
 
-        //Columnas a seleccionar
-        String[] columnas = {HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION};
+        db= historialDBHelper.getWritableDatabase();
+        ContentValues values=new ContentValues();
 
-        //Filtros del sql -> where md5 = ?
-        String filtros = HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION + " = ?";
-        String[] valoresFiltro = {condicion};
 
-        Cursor c = db.query(
-                PresionContract.PresionEntry.TABLE_NAME,
-                columnas,
-                filtros,
-                valoresFiltro,
-                null, //group by
-                null, //filtros por grupo
-                null //Orden
-        );
+        //SE VAN A AGREGAR LOS DATOS DEL REGISTRO QUE TRAJE POR PARAMETROS AL CONTENTVALUES
+        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION,tomaPresion.getCondicion());
+        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_SISTOLICA,tomaPresion.getDiastolica());
+        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_SISTOLICA,tomaPresion.getDiastolica());
+        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_FECHA,tomaPresion.getFechaToma());
+        values.put(HistorialContract.HistorialEntry.COLUMN_NAME_Nombre_USUARIO,tomaPresion.getNombreDeUsuario());
+        //AHORA SE INSERTARA EL REGISTRO
+        db.insert(HistorialContract.HistorialEntry.TABLE_NAME, null, values);
 
-        if (c != null) {
-            c.moveToFirst();
-            //return c.getFloat(0);
-        } else {
-            return false;
+        //else { //La cancion ya existe, debo modificar
+        //    db.update(RegistroContract.CancionEntry.TABLE_NAME, values,
+        //            RegistroContract.CancionEntry.COLUMN_NAME_MD5+" = ?",
+        //            new String[] {juego.getMd5()});
+        //}
+    }
+
+    /**
+     * EN ESTE METODO HAY QUE HACER QUE RETORNE UN ARRAY DE LOS REGISTROS EXISTENTES
+     *
+     */
+    public ArrayList<TomaPresion> cargarRegistros(){
+
+        String nombre,condicion,diastolica,sistolica,fecha;
+        db=historialDBHelper.getReadableDatabase();
+
+        Cursor  cursor = db.rawQuery("select * from "+HistorialContract.HistorialEntry.TABLE_NAME+" ORDER BY "+HistorialContract.HistorialEntry.COLUMN_NAME_Nombre_USUARIO+" ASC, "+
+                HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION,null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+                nombre = cursor.getString(cursor.getColumnIndex(HistorialContract.HistorialEntry.COLUMN_NAME_Nombre_USUARIO));
+                condicion = cursor.getString(cursor.getColumnIndex(HistorialContract.HistorialEntry.COLUMN_NAME_CONDICION));
+                diastolica = cursor.getString(cursor.getColumnIndex(HistorialContract.HistorialEntry.COLUMN_NAME_DIASTOLICA));
+                sistolica = cursor.getString(cursor.getColumnIndex(HistorialContract.HistorialEntry.COLUMN_NAME_SISTOLICA));
+                fecha =cursor.getString(cursor.getColumnIndex(HistorialContract.HistorialEntry.COLUMN_NAME_FECHA));
+                //Instancia un registro
+                TomaPresion tp = new TomaPresion(nombre,condicion,diastolica,sistolica,fecha);
+
+                //Añade la instancia al array de registros
+                registroTP.add(tp);
+                cursor.moveToNext();
+            }
         }
 
-        return false;
+        return registroTP;
+    }
+
+    public void limpiar(){
+        // Define 'where' part of query.
+        context.deleteDatabase(historialDBHelper.DATEBASE_NAME);
     }
 }
