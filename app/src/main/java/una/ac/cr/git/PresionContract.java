@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
  */
 
 public class PresionContract {
+
     public static String SQL_CREATE_ENTRIES =
             //CREATE TABLE cancion (md5 TEXT PRIMARY KEY, valoracion INTEGER)
             "CREATE TABLE " + PresionEntry.TABLE_NAME + " ( " +
