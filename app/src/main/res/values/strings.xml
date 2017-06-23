@@ -58,6 +58,7 @@
     <string name="sistolica">SISTÓLICA</string>
     <string name="diastolica">DIASTÓLICA</string>
     <string name="condicion">CONDICIÓN</string>
+    <string name="c_dula">Cédula</string>
 
     <string-array name="sexo">
         <item>Masculino</item>

@@ -52,8 +52,8 @@ public class Login extends AppCompatActivity {
         //OJOOO
         //ESTE METODO POR PRIMERA VEZ DEBE ESTAR COMENTADO
 
-        /*
-        if (fila.moveToFirst()==true){
+
+        if (fila.moveToFirst()){
             String usua=fila.getString(0);
             String pass=fila.getString(1);
 
@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
                 correo.setText("");
                 txtcontrasena.setText("");
-                Toast.makeText(getApplicationContext(), "¡Bienvenido!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "¡Bienvenido a PressApp!", Toast.LENGTH_LONG).show();
             }else {
 
                 Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
@@ -71,13 +71,13 @@ public class Login extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
         }
-        */
+
         //HASTA AQUI
 
         //ESTE DEBE ESTAR PARA QUE FUNCIONE POR PRIMERA VEZ
         //DESCOMENTAR LUEGO
 
-
+        /*
         fila.moveToFirst();
 
         String usua=fila.getString(0);
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
         }
-
+*/
         //HASTA ACA
 
     }
