@@ -49,6 +49,10 @@ public class Login extends AppCompatActivity {
         fila=db.rawQuery("select usuario,contrasena from usuarios where usuario='"+usuario+"' and contrasena='"+contrasena+"'", null);
        // fila=db.rawQuery("select * from usuarios where usuario='"+usuario+"' and contrasena='"+contrasena+"'", null);
 
+        //OJOOO
+        //ESTE METODO POR PRIMERA VEZ DEBE ESTAR COMENTADO
+
+        /*
         if (fila.moveToFirst()==true){
             String usua=fila.getString(0);
             String pass=fila.getString(1);
@@ -58,14 +62,39 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
                 correo.setText("");
                 txtcontrasena.setText("");
+                Toast.makeText(getApplicationContext(), "¡Bienvenido!", Toast.LENGTH_LONG).show();
             }else {
 
                 Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
             }
 
-        }else{Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();}
+        }else {
+            Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
+        }
+        */
+        //HASTA AQUI
+
+        //ESTE DEBE ESTAR PARA QUE FUNCIONE POR PRIMERA VEZ
+        //DESCOMENTAR LUEGO
 
 
+        fila.moveToFirst();
+
+        String usua=fila.getString(0);
+        String pass=fila.getString(1);
+
+        if (usuario.equals(usua)&&contrasena.equals(pass)){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            correo.setText("");
+            txtcontrasena.setText("");
+            Toast.makeText(getApplicationContext(), "¡Bienvenido!", Toast.LENGTH_LONG).show();
+        }else {
+
+            Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
+        }
+
+        //HASTA ACA
 
     }
 
