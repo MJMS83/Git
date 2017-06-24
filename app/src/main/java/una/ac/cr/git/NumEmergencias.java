@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class NumEmergencias extends AppCompatActivity {
+
+    private static final int REQUEST_CALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,30 +105,34 @@ public class NumEmergencias extends AppCompatActivity {
     public void LlamarPolicia(View view) {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:117"));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            //PEDIR PERMISOS
-            return;
+
+        if (ContextCompat.checkSelfPermission(NumEmergencias.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(NumEmergencias.this,new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+        }else {
+            startActivity(intent);
         }
-        startActivity(intent);
     }
 
     public void LlamarBomberos(View view) {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:118"));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            //PEDIR PERMISOS
-            return;
+            if (ContextCompat.checkSelfPermission(NumEmergencias.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(NumEmergencias.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+            } else {
+                startActivity(intent);
+            }
         }
-        startActivity(intent);
     }
 
     public void LlamarCruzRoja(View view) {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:128"));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            //PEDIR PERMISOS
-            return;
+        if (ContextCompat.checkSelfPermission(NumEmergencias.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(NumEmergencias.this,new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+        }else {
+            startActivity(intent);
         }
-        startActivity(intent);
     }
 }
+

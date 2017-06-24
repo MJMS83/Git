@@ -1,7 +1,11 @@
 package una.ac.cr.git;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +17,9 @@ import android.view.MenuItem;
 import java.util.Vector;
 
 public class TipsSalud extends AppCompatActivity {
-   //Adaptador para los videos
+
+    private static final int REQUEST_INTERNET = 1;
+    //Adaptador para los videos
     RecyclerView recyclerView;
     //Vector con los urls de los videos
     Vector<YoutubeVideo> youtubeVideos = new Vector<YoutubeVideo>();
@@ -25,19 +31,23 @@ public class TipsSalud extends AppCompatActivity {
         setContentView(R.layout.activity_tips_salud);
         //Aqui construimos lo de los videos
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(TipsSalud.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(TipsSalud.this, new String[]{Manifest.permission.INTERNET}, REQUEST_INTERNET);
+            }
+        }
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
 
         //Load video List
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/c5FLRu5bZ3I\" frameborder=\"0\" allowfullscreen></iframe>"));
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/wIziMxluDik\" frameborder=\"0\" allowfullscreen></iframe>"));
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/485s32fNd9Y\" frameborder=\"0\" allowfullscreen></iframe>"));
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xioHtUPQk9w\" frameborder=\"0\" allowfullscreen></iframe>"));
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/sn14MOn2BsA\" frameborder=\"0\" allowfullscreen></iframe>"));
-        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jeEJ0bl39OI\" frameborder=\"0\" allowfullscreen></iframe>"));
-
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/c5FLRu5bZ3I\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/wIziMxluDik\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/485s32fNd9Y\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xioHtUPQk9w\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/sn14MOn2BsA\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
+        youtubeVideos.add( new YoutubeVideo("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jeEJ0bl39OI\" frameborder=\"0\" allowfullscreen></iframe>","Descripcion"));
         VideoAdapter videoAdapter = new VideoAdapter(youtubeVideos);
 
         recyclerView.setAdapter(videoAdapter);

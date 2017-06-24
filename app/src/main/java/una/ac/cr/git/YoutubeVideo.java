@@ -1,5 +1,7 @@
 package una.ac.cr.git;
 
+import java.security.PublicKey;
+
 /**
  * Created by Morri on 19/06/2017.
  */
@@ -8,14 +10,18 @@ package una.ac.cr.git;
 public class YoutubeVideo {
 
     String videoUrl;
-
+    String Descripcion;
     public YoutubeVideo() {
 
     }
 
-    public YoutubeVideo(String videoUrl) {
+    public YoutubeVideo(String videoUrl,String Descripcion) {
         this.videoUrl = videoUrl;
+        this.Descripcion =Descripcion;
     }
+
+
+
 
     public String getVideoUrl() {
         return videoUrl;
@@ -24,5 +30,13 @@ public class YoutubeVideo {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
-}
 
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+}
