@@ -274,30 +274,31 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "¡La condición de su presión es: " + Condicion() + "! Visita nuestros tips de salud, para tener una buena presión arterial.", Toast.LENGTH_LONG).show();
 
+            //BASE DE DATOS
+            DBHelperTomas admin = new DBHelperTomas(this, "pressapp2.db", null, 2);
+            SQLiteDatabase db = admin.getWritableDatabase();
 
+            String tsistolica = sistolica.getText().toString();
+            String tdiastolica = diastolica.getText().toString();
+            String tcondicion = Condicion();
+            String tfecha = fecha.getText().toString();
+
+            ContentValues values = new ContentValues();
+            values.put("tsistolica",tsistolica);
+            values.put("tdiastolica",tdiastolica);
+            values.put("tcondicion", tcondicion);
+            values.put("tfecha",tfecha);
+
+            db.insert("tomaspresion",null,values);
+            //db.close();
+
+            Toast.makeText(getApplicationContext(), "¡Registro ingresado a la base de datos!", Toast.LENGTH_LONG).show();
 
 
 
         }
 
-        DBHelperTomas admin = new DBHelperTomas(this, "pressapp.db", null, 1);
-        SQLiteDatabase db = admin.getWritableDatabase();
 
-        String tsistolica = sistolica.getText().toString();
-        String tdiastolica = diastolica.getText().toString();
-        String tcondicion = Condicion();
-        String tfecha = fecha.getText().toString();
-
-        ContentValues values = new ContentValues();
-        values.put("tsistolica",tsistolica);
-        values.put("tdiastolica",tdiastolica);
-        values.put("tcondicion", tcondicion);
-        values.put("tfecha",tfecha);
-
-        db.insert("tomas",null,values);
-        db.close();
-
-        Toast.makeText(getApplicationContext(), "¡Registro ingresado a la base de datos!", Toast.LENGTH_LONG).show();
 
     }
 }

@@ -8,12 +8,12 @@
         <TableLayout
             android:id="@+id/listaTomasPresion"
             android:layout_width="match_parent"
-            android:layout_height="406dp"
+            android:layout_height="wrap_content"
             android:stretchColumns="*">
 
 
             <TableRow
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:orientation="horizontal"
