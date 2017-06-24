@@ -10,14 +10,14 @@ import java.security.PublicKey;
 public class YoutubeVideo {
 
     String videoUrl;
-    String Descripcion;
+    ;
     public YoutubeVideo() {
 
     }
 
     public YoutubeVideo(String videoUrl,String Descripcion) {
         this.videoUrl = videoUrl;
-        this.Descripcion =Descripcion;
+
     }
 
 
@@ -32,11 +32,7 @@ public class YoutubeVideo {
     }
 
 
-    public String getDescripcion() {
-        return Descripcion;
-    }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
-    }
+
+
 }
