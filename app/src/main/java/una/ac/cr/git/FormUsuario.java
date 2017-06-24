@@ -46,14 +46,7 @@ public class FormUsuario extends AppCompatActivity implements AdapterView.OnItem
         //Sexo
         txtNombre = (EditText) findViewById(R.id.nomcompleto);
         txtAltura = (EditText) findViewById(R.id.txtaltura);
-
-
-
-
-
     }
-
-
 
     public void CancelarRegistro(View view) {
         Intent intent = new Intent(this, Login.class);
@@ -61,7 +54,6 @@ public class FormUsuario extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void Registrar(View view) {
-
         DBHelper admin = new DBHelper(this,"pressapp.db",null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
@@ -74,7 +66,6 @@ public class FormUsuario extends AppCompatActivity implements AdapterView.OnItem
         String nombre = txtNombre.getText().toString();
         String altura = txtAltura.toString();
 
-
         ContentValues values = new ContentValues();
         values.put("codigo",codigo);
         values.put("usuario",usuario);
@@ -85,18 +76,14 @@ public class FormUsuario extends AppCompatActivity implements AdapterView.OnItem
         values.put("nombre", nombre);
         values.put("altura", altura);
 
-
         //INSERTAR LOS DATOS A LA TABLA USUARIOS
         db.insert("usuarios",null,values);
         db.close();
 
        Toast.makeText(getApplicationContext(), "¡Gracias por registrarse!", Toast.LENGTH_LONG).show();
 
-
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-
-
 
     }
 
