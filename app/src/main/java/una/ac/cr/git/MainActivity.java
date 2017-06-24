@@ -246,9 +246,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void CerrarApp() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            finishAffinity();
-        }
+        Intent intent = new Intent(this,Login.class);
+        startActivity(intent);
     }
 
 
