@@ -6,7 +6,7 @@
 
 
         <TableLayout
-            android:id="@+id/lista"
+            android:id="@+id/listaTomasPresion"
             android:layout_width="match_parent"
             android:layout_height="406dp"
             android:stretchColumns="*">
@@ -24,28 +24,29 @@
                     android:id="@+id/textSistolica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+                    android:textAlignment="center"
+                    android:textColor="@color/negro" />
 
                 <TextView
                     android:id="@+id/textDiastolica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+                    android:textAlignment="center"
+                    android:textColor="@color/negro" />
 
                 <TextView
                     android:id="@+id/textCondicion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+                    android:textAlignment="center"
+                    android:textColor="@color/negro" />
+
                 <TextView
                     android:id="@+id/textFecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/negro"
-                    />
+                    android:textAlignment="center"
+                    android:textColor="@color/negro" />
             </TableRow>
 
         </TableLayout>

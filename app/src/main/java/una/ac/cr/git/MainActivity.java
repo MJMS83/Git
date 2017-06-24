@@ -2,9 +2,11 @@ package una.ac.cr.git;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     TextView diastolica;
     TextView fecha;
     ListView lista;
+    Button calcular;
 
     //PARA OBTENER LA FECHA ACUAL
     final Calendar calendar = Calendar.getInstance();
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     int mes = calendar.get(Calendar.MONTH);
     int dia = calendar.get(Calendar.DAY_OF_MONTH);
 
+    final ArrayList<TomaPresion> datos = new ArrayList<>();
 
     @Override
 
@@ -52,16 +56,13 @@ public class MainActivity extends AppCompatActivity {
         diastolica = (TextView) findViewById(R.id.txtDiastolica);
         fecha = (TextView) findViewById(R.id.txtFecha);
         lista = (ListView) findViewById(R.id.ListViewTomas);
+        calcular = (Button) findViewById(R.id.calcular);
 
         //PARTE DE LA FECHA
         mes = mes + 1;
-        fecha.setText("Fecha: "+dia+"/"+mes+"/"+anio);
+        fecha.setText(dia + "/" + mes + "/" + anio);
 
 
-
-
-
-        final ArrayList<TomaPresion> datos = new ArrayList<>();
         lista.setAdapter(new Lista_Adaptador(this, R.layout.entrada, datos) {
             @Override
             public void onEntrada(Object activity_main, View view) {
@@ -81,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         txtsistolica.setBackgroundColor(getResources().getColor(R.color.Normal));
                         txtDiastolica.setBackgroundColor(getResources().getColor(R.color.Normal));
                         txtCondicion.setBackgroundColor(getResources().getColor(R.color.Normal));
-                       // Toast.makeText(getApplicationContext(), "¡La condición de su presión es: "+Condicion()+"! Visita nuestros tips de salud, para seguir con una buena presión arterial.", Toast.LENGTH_LONG).show();
-
+                        // Toast.makeText(getApplicationContext(), "¡La condición de su presión es: "+Condicion()+"! Visita nuestros tips de salud, para seguir con una buena presión arterial.", Toast.LENGTH_LONG).show();
 
 
                         break;
@@ -132,45 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        final Button calcular = (Button) findViewById(R.id.calcular);
-        calcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Condicion()=="Vacio"){
-                    Toast toast1 = Toast.makeText(getApplicationContext(),"Ha dejado campos vacíos", Toast.LENGTH_SHORT);
-                    toast1.setGravity(Gravity.CENTER|Gravity.CENTER,0,0);
-                    toast1.show();
-                }else if (Condicion()=="Error"){
-                    Toast toast1 = Toast.makeText(getApplicationContext(),"Los datos son incorrectos", Toast.LENGTH_SHORT);
-                    toast1.setGravity(Gravity.CENTER|Gravity.CENTER,0,0);
-                    toast1.show();
-                }
-                else {
-
-                    datos.add(new TomaPresion(sistolica.getText().toString(), diastolica.getText().toString(), Condicion(), fecha.getText().toString()));
-                    //Ocultar el boton para que pueda ingresar solo una vez los datos
-                    calcular.setVisibility(View.INVISIBLE);
-
-                    //OCULTA EL TECLADO AL DAR CLIC
-                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
-
-
-                    Toast.makeText(getApplicationContext(), "¡La condición de su presión es: "+Condicion()+"! Visita nuestros tips de salud, para tener una buena presión arterial.", Toast.LENGTH_LONG).show();
-
-                }
-
-
-
-
-            }
-        });
-
-
     }//FINAL ONCREATE
-
 
 
     public String Condicion() {
@@ -290,4 +252,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void IngresarTomas(View view) {
+        if (Condicion() == "Vacio") {
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Ha dejado campos vacíos", Toast.LENGTH_SHORT);
+            toast1.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
+            toast1.show();
+        } else if (Condicion() == "Error") {
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Los datos son incorrectos", Toast.LENGTH_SHORT);
+            toast1.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
+            toast1.show();
+        } else {
+
+            datos.add(new TomaPresion(sistolica.getText().toString(), diastolica.getText().toString(), Condicion(), fecha.getText().toString()));
+            //Ocultar el boton para que pueda ingresar solo una vez los datos
+            calcular.setVisibility(View.INVISIBLE);
+
+            //OCULTA EL TECLADO AL DAR CLIC
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
+
+            Toast.makeText(getApplicationContext(), "¡La condición de su presión es: " + Condicion() + "! Visita nuestros tips de salud, para tener una buena presión arterial.", Toast.LENGTH_LONG).show();
+
+
+
+
+
+        }
+
+        DBHelperTomas admin = new DBHelperTomas(this, "pressapp.db", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+
+        String tsistolica = sistolica.getText().toString();
+        String tdiastolica = diastolica.getText().toString();
+        String tcondicion = Condicion();
+        String tfecha = fecha.getText().toString();
+
+        ContentValues values = new ContentValues();
+        values.put("tsistolica",tsistolica);
+        values.put("tdiastolica",tdiastolica);
+        values.put("tcondicion", tcondicion);
+        values.put("tfecha",tfecha);
+
+        db.insert("tomas",null,values);
+        db.close();
+
+        Toast.makeText(getApplicationContext(), "¡Registro ingresado a la base de datos!", Toast.LENGTH_LONG).show();
+
+    }
 }

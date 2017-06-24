@@ -1,8 +1,11 @@
 package una.ac.cr.git;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by WILLIAM on 22/06/2017.
@@ -29,5 +32,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into usuarios values('01','admin','admin','23','65','Masculino','Administrador','1.70');");*/
         db.execSQL("CREATE TABLE usuarios(codigo varchar(25) primary key,usuario varchar(25),contrasena varchar(25));");
         db.execSQL("insert into usuarios values('01','admin','admin')");
+
     }
+
+
 }
