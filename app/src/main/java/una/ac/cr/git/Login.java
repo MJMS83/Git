@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
         //ESTE DEBE ESTAR PARA QUE FUNCIONE POR PRIMERA VEZ
         //DESCOMENTAR LUEGO
 
-
+        /*
         fila.moveToFirst();
 
         String usua=fila.getString(0);
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "¡Usuario o contraseña incorrectos!", Toast.LENGTH_LONG).show();
         }
-
+*/
         //HASTA ACA
 
     }
