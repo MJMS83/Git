@@ -21,15 +21,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuarios(codigo varchar(25) primary key,usuario varchar(25),contrasena varchar(25));");
         db.execSQL("insert into usuarios values('01','admin','admin')");
-        /*db.execSQL("CREATE TABLE usuarios(codigo varchar(25) primary key,usuario varchar(25),contrasena varchar(25),edad varchar(25),peso varchar(25),sexo varchar(25),nombre varchar(25),altura varchar(25));");
-        db.execSQL("insert into usuarios values('01','admin','admin','23','65','Masculino','Administrador','1.70');");*/
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       /* db.execSQL("CREATE TABLE usuarios(codigo varchar(25) primary key,usuario varchar(25),contrasena varchar(25),edad varchar(25),peso varchar(25),sexo varchar(25),nombre varchar(25),altura varchar(25));");
-        db.execSQL("insert into usuarios values('01','admin','admin','23','65','Masculino','Administrador','1.70');");*/
+        db.execSQL("drop table usuarios");
         db.execSQL("CREATE TABLE usuarios(codigo varchar(25) primary key,usuario varchar(25),contrasena varchar(25));");
         db.execSQL("insert into usuarios values('01','admin','admin')");
 
