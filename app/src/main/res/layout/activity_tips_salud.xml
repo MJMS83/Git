@@ -20,31 +20,47 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="-2dp" />
 
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/TectoVerVideps"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="149dp">
 
 
     </android.support.v7.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/textView32"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Arrastra hacia abajo hay mas videos"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/textView33"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.75"
         android:fontFamily="sans-serif-condensed"
-        android:text="Monitorear su presión regularmente, sin obsesionarse, procurando que esta revisión sea siempre a la misma hora y en condiciones semejantes. Es muy útil aprender a medir la tensión o contar con alguien que ayude a utilizar alguno de estos instrumentos:  - Esfigmomanómetro, que se coloca en el brazo y en apariencia es similar a un reloj. - Baumanómetro, también conocido como barra de mercurio, el cual requiere el uso de estetoscopio. - Medidores de presión digitales, que son nuevos en el mercado, pero no siempre precisos. - Cuando se toma la presión arterial se registran dos valores: uno elevado, generado cuando el corazón se contrae (sístole), y otro más bajo, que corresponde a la relajación entre un latido y otro (diástole); los registros ideales en una persona adulta son 120/80, respectivamente. Se comienza a considerar hipertensión cuando, al estar relajado, se registra un valor de 140/90."
+        android:text="@string/TextoEducativo"
         android:textAlignment="center"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.26"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/TIPS2"
+        android:textAlignment="center"
+        android:textSize="13sp"
         android:textStyle="bold" />
 
 </LinearLayout>
