@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        lista.clearAnimation();
 
     }//FINAL ONCREATE
 
@@ -246,7 +246,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void CerrarApp() {
-        Intent intent = new Intent(this,Login.class);
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            finishAffinity();
+        }*/
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 
@@ -291,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
             db.insert("tomaspresion",null,values);
             //db.close();
 
-            Toast.makeText(getApplicationContext(), "¡Registro ingresado a la base de datos!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "¡Su registro ha sido guardado con éxito!", Toast.LENGTH_LONG).show();
 
 
 
