@@ -59,9 +59,17 @@
     <string name="diastolica">DIASTÓLICA</string>
     <string name="condicion">CONDICIÓN</string>
     <string name="c_dula">Cédula</string>
-    <string name="TextoEducativo">Monitorear su presión regularmente, sin obsesionarse, procurando que esta revisión sea siempre a la misma hora y en condiciones semejantes. Es muy útil aprender a medir la tensión o contar con alguien que ayude a utilizar alguno de estos instrumentos: - Esfigmomanómetro, que se coloca en el brazo y en apariencia es similar a un reloj. - Baumanómetro, también conocido como barra de mercurio, el cual requiere el uso de estetoscopio. - Medidores de presión digitales, que son nuevos en el mercado, pero no siempre precisos. - Cuando se toma la presión arterial se registran dos valores: uno elevado, generado cuando el corazón se contrae (sístole), y otro más bajo, que corresponde a la relajación entre un latido y otro (diástole); los registros ideales en una persona adulta son 120/80, respectivamente. Se comienza a considerar hipertensión cuando, al estar relajado, se registra un valor de 140/90.</string>
+    <string name="TextoEducativo">Monitorear su presión regularmente, sin obsesionarse, procurando que esta revisión sea siempre a la misma hora y en condiciones semejantes. Es muy útil aprender a medir la tensión o contar con alguien que ayude a utilizar alguno de estos instrumentos: - Esfigmomanómetro, que se coloca en el brazo y en apariencia es similar a un reloj. - Baumanómetro, también conocido como barra de mercurio, el cual requiere el uso de estetoscopio. - Medidores de presión digitales, que son nuevos en el mercado, pero no siempre precisos.</string>
     <string name="TectoVerVideps">Arrastra hacia abajo hay mas videos</string>
     <string name="TIPS2">El ejercicio físico es de gran ayuda para mantener una presión (o tensión) arterial normal y estable. Existen varios estudios que demuestran esto. Incluso, una investigación reciente ha asociado el ejercicio físico con el efecto de la sal en la presión arterial (generalmente la eleva) y detectó que cuanto más actividad tenían las personas, menos efecto tenía la sal sobre la presión, que se mantenía baja.</string>
+    <string name="titulo_hipertensi_n_arterial">Consejos para combatir la hipertensión arterial</string>
+    <string name="es_importante">¡Es importante!</string>
+    <string name="h_bitos_saludables">Hábitos saludables</string>
+    <string name="un_peso_normal">- Mantenga un peso normal</string>
+    <string name="ejercicio_todos">-Haga ejercicio todos los días</string>
+    <string name="dieta_sana">-Dieta sana</string>
+    <string name="consuma_menos_sal">-Consuma menos sal</string>
+    <string name="beba_menos_alcohol">-Beba menos alcohol</string>
 
     <string-array name="sexo">
         <item>Masculino</item>

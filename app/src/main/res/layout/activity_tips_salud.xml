@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
-    tools:context="una.ac.cr.git.TipsSalud"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context="una.ac.cr.git.TipsSalud">
 
     <!--Menu principal -->
     <android.support.v7.widget.Toolbar
@@ -17,16 +18,18 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="-2dp" />
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView32"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/TectoVerVideps"
+        android:background="#fff"
+        android:text="@string/titulo_hipertensi_n_arterial"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textColor="#000"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
@@ -37,30 +40,80 @@
 
     </android.support.v7.widget.RecyclerView>
 
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingTop="5dp"
+        android:text="@string/es_importante"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/textView33"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
+        android:layout_height="156dp"
+        android:background="#fff"
+        android:fontFamily="sans-serif"
+        android:paddingTop="5dp"
         android:text="@string/TextoEducativo"
         android:textAlignment="center"
-        android:textSize="13sp"
-        android:textStyle="bold" />
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="@string/h_bitos_saludables"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.26"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/TIPS2"
-        android:textAlignment="center"
-        android:textSize="13sp"
-        android:textStyle="bold" />
+        android:background="#fff"
+        android:paddingTop="7dp"
+        android:text="@string/un_peso_normal"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="@string/ejercicio_todos"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="@string/dieta_sana"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="@string/consuma_menos_sal"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="@string/beba_menos_alcohol"
+        android:textAlignment="center" />
+
 
 </LinearLayout>
