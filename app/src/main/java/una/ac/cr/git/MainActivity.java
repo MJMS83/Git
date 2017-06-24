@@ -295,9 +295,6 @@ public class MainActivity extends AppCompatActivity {
             //db.close();
 
             Toast.makeText(getApplicationContext(), "¡Su registro ha sido guardado con éxito!", Toast.LENGTH_LONG).show();
-
-
-
         }
 
 

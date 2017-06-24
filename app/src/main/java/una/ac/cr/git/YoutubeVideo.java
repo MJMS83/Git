@@ -10,7 +10,7 @@ import java.security.PublicKey;
 public class YoutubeVideo {
 
     String videoUrl;
-    ;
+
     public YoutubeVideo() {
 
     }

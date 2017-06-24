@@ -14,13 +14,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static una.ac.cr.git.R.layout.activity_perfil_usuario;
+
 public class PerfilUsuario extends AppCompatActivity {
     TextView nombre,edad,peso,altura,sexo,clave;
     private Cursor fil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_usuario);
+        setContentView(activity_perfil_usuario);
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         nombre= (TextView)findViewById(R.id.txtNombre);
@@ -30,38 +32,22 @@ public class PerfilUsuario extends AppCompatActivity {
         sexo=(TextView)findViewById(R.id.txtSexo);
         clave=(TextView)findViewById(R.id.txtClave);
         setSupportActionBar(toolbar);
+        MostrarDatos();
 
     }
 
-    public  void MostrarDatos(View v) {
+    private  void MostrarDatos() {
         DBHelper admin = new DBHelper(this, "pressapp.db", null, 1);
-        SQLiteDatabase db = admin.getReadableDatabase();
-        String usuario = nombre.getText().toString();
-        String contrasena = clave.getText().toString();
-        fil = db.rawQuery("select usuario,contrasena from usuarios where usuario='" + usuario + "' " +
-                "and contrasena='" + contrasena + "'", null);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        //Datos para traer los datos de la base
+        String nom = "";
+        String age = "";
+        String pes = "";
+        String alt = "";
+        String sex = "";
+        String pass = "";
 
 
-        if (fil.moveToFirst()) {
-            String usua = fil.getString(0);
-            String pass = fil.getString(1);
-
-            if (usuario.equals(usua) && contrasena.equals(pass)) {
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                nombre.getText();
-                edad.getText();
-                peso.getText();
-                altura.getText();
-                sexo.getText();
-                clave.getText();
-
-            } else {
-
-                Toast.makeText(getApplicationContext(), "¡No hay datos del usuario!", Toast.LENGTH_LONG).show();
-            }
-
-        }
     }
      /*MENU PRINCIPAL*/
 
@@ -133,6 +119,4 @@ public class PerfilUsuario extends AppCompatActivity {
         Intent intent = new Intent(this,Login.class);
         startActivity(intent);
     }
-
-
 }

@@ -60,21 +60,21 @@ public class FormUsuario extends AppCompatActivity implements AdapterView.OnItem
         String codigo = id.getText().toString();
         String usuario = correo.getText().toString();
         String contrasena = txtcontrasena.getText().toString();
-       /* String edad = txtEdad.getText().toString();
+        String edad = txtEdad.getText().toString();
         String peso = txtPeso.getText().toString();
         String sexo = selection.toString();
         String nombre = txtNombre.getText().toString();
-        String altura = txtAltura.toString();*/
+        String altura = txtAltura.toString();
 
         ContentValues values = new ContentValues();
         values.put("codigo",codigo);
         values.put("usuario",usuario);
         values.put("contrasena",contrasena);
-       /* values.put("edad",edad);
+        values.put("edad",edad);
         values.put("peso",peso);
         values.put("sexo",sexo);
         values.put("nombre", nombre);
-        values.put("altura", altura);*/
+        values.put("altura", altura);
 
         //INSERTAR LOS DATOS A LA TABLA USUARIOS
         db.insert("usuarios",null,values);
